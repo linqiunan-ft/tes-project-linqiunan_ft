@@ -1,3 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise 💗</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh; padding: 24px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg,#ffe0ec,#f3e4ff);
+  font-family: Arial, sans-serif; color: #743553;
+  text-align: center;
+}
+.card {
+  background: #ffffffdd; padding: 30px 22px;
+  border-radius: 25px; max-width: 390px; width: 100%;
+  box-shadow: 0 12px 35px #b96d9833;
+}
+h1 { color: #d94f89; }
+p { line-height: 1.7; }
+button {
+  border: 0; border-radius: 30px; padding: 13px 20px;
+  margin: 7px; background: #ed78a8; color: white;
+  font-size: 15px; cursor: pointer;
+}
+button:hover { background: #d94f89; }
+.hidden { display: none; }
+.heart { font-size: 42px; animation: beat 1s infinite; }
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <section id="page1">
+    <div class="heart">💌</div>
+    <h1>Hiii, kamu!</h1>
+    <p>Ada sesuatu buat kamu nih...</p>
+    <button onclick="showPage(2)">Pencet aku ✨</button>
+  </section>
+
+  <section id="page2" class="hidden">
+    <h1>Mini Quiz 💗</h1>
+    <p id="question">Pertanyaan 1: siapa yang bikin website ini?</p>
+    <button onclick="answer(true)">Kamu dong?</button>
+    <button onclick="answer(false)">Orang lain?</button>
+    <p id="feedback"></p>
+    <button id="next" class="hidden"
+      onclick="showPage(3)">Lanjut ➜</button>
+  </section>
+
+  <section id="page3" class="hidden">
+    <div class="heart">🎁</div>
+    <h1>Surprise!</h1>
+    <p>Hai, kamu yang spesial buat aku.</p>
+    <p>Aku bikin halaman kecil ini khusus buat kamu.
+    Mungkin sederhana, tapi aku berharap ini bisa
+    bikin kamu senyum hari ini 💗</p>
+    <button onclick="showPage(4)">Ada satu lagi...</button>
+  </section>
+
+  <section id="page4" class="hidden">
+    <div class="heart">💖</div>
+    <h1>Pesan buat kamu</h1>
+    <p>Makasih ya udah jadi bagian dari hari-hariku.
+    Semoga kita selalu bisa saling menghargai,
+    saling mendukung, dan bikin banyak kenangan baik.</p>
+    <p>— dari seseorang yang bikin website ini ♡</p>
+    <button onclick="showPage(1)">Ulangi dari awal ↻</button>
+  </section>
+</div>
+
+<script>
+function showPage(n) {
+  document.querySelectorAll("section").forEach(s =>
+    s.classList.add("hidden")
+  );
+  document.getElementById("page" + n).classList.remove("hidden");
+}
+function answer(correct) {
+  document.getElementById("feedback").textContent = correct
+    ? "YAP BENER BANGET 😭💗"
+    : "Yahh, coba pikir lagi wkwk 😭";
+  document.getElementById("next").classList.remove("hidden");
+}
+</script>
+</body>
+</html>
 # Build and Release Folders
 bin-debug/
 bin-release/
